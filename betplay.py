@@ -112,6 +112,14 @@ def programar_fecha (nombres_equipo, fechas, locales, visitantes, goles_locales,
         # 6. Mensaje de éxito
         print(f"¡Partido {equipo_local} vs {equipo_visitante} programado para el {fecha_partido}!")
 
+def registrar_marcador(nombres_equipo, pj, pg. pp, pe, gf, gc, puntos, partidos_fecha, partidos_local, partidos_visitante, partidos_goles_l, partidos_goles_v):
+    '''registra el resultado de un partido pendiente y actualiza las estadisticas'''
+    print('\n--- REGISTRO DE MARCADOR : ---')
+    #1. partidos que no tienen marcador 
+    partidos_pendientes = []
+    for i in range(len(partidos_fecha)):
+        if partidos_goles
+        
 def main():
     '''funcion que ejecuta el programa'''
     print('bienvenidos al sistema de gestion betplay')
@@ -186,7 +194,7 @@ def main():
                     #muestra el estado del marcador
                     marcador = f'{partidos_goles_local[i]}-{partidos_goles_visitante[i]}' if partidos_goles_local[i] is not None else 'pendientes'
                     print(f'fecha:{partidos_fecha[i]} | {partidos_local[i]} vs {partidos_visitante[i]} | Marcador: {marcador}")')        
-                    
+
         elif opcion == '4':
             #  imprimir la lista de nombres de equipos
             print('\n---equipos registrados---.')
