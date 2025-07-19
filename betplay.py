@@ -17,6 +17,43 @@ def mostrar_menu():
     
     print('7. salir' )
 
+def registrar_equipos (nombres, pj, pg, pp, pe, gf, gc, puntos):
+
+    '''ingrese los nombres de los equipos a registrar'''
+    print('\n---REGISTRO DE EQUIPOS---')
+    try:
+        cantidad = int(input('¿cuantos equipos vas a registrar?'))
+
+    except ValueError:
+        print('error: debes ingresar un numero entero.')
+        return #sale de la funcion si no es un numero
+    
+    for i in range (cantidad):
+        while True: #se asegura de que no se ingrese un ombre vacio u otro 
+            nuevo_equipo = input(f'nombre de equipo {i+1}:').capitalize().strip()
+            if nuevo_equipo: #verifica que no este vacio
+                break
+            else:
+                print('el nombre del equipo no puede estar vacio.intente de nuevo.')
+            
+            #verificamos si el equipo ya existe en nuestra lista para no tener duplicados    
+        if nuevo_equipo in nombres:
+            print(f'el equipo {nuevo_equipo} ya esta registrado. no se añadio.')
+        else:
+            #si no existe, lo agregamos
+            nombres.append(nuevo_equipo)
+            #y tambien agregamos sus valores iniciales en cero a todas las demas listas 
+
+            pj.append(0)
+            pg.append(0)
+            pp.append(0)
+            pe.append(0)
+            gf.append(0)
+            gc.append(0)
+            puntos.append(0)
+
+            print(f'equipo "{nuevo_equipo}" registrado con exito')
+
 def main():
     '''funcion que ejecuta el programa'''
     print('bienvenidos al sistema de gestion betplay')
@@ -47,10 +84,18 @@ def main():
         opcion = input('por favor, elije una opcion:')
 
         if opcion == '1':
-            print('registrar equipo')
-            pass
+            print('registrar equipo') # Llamamos a la función y le pasamos TODAS nuestras listas
+            registrar_equipos(nombres_equipos,
+                              partidos_jugados,
+                              partidos_ganados,
+                              partidos_perdidos,
+                              partidos_empatados,
+                              goles_a_favor,
+                              goles_en_contra,
+                              puntos_equipo)
         elif opcion == '2':
             print('elije "Programar fecha".')
+            pass
         elif opcion == '3':
             print('elije "Registrar marcador".')
             pass
